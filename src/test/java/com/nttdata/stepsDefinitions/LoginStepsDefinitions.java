@@ -28,6 +28,7 @@ public class LoginStepsDefinitions {
         loginSteps.escribirEmail(email);
         loginSteps.escribirPassword(password);
         loginSteps.login();
+
         screenShot();
 
     }

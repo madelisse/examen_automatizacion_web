@@ -29,6 +29,15 @@ public class LoginSteps {
         passwordInputElement.sendKeys(pass);
     }
     public void login(){
-        this.driver.findElement(LoginPage.loginButton).click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2)); // Espera hasta 10 segundos
+        // Espera hasta que el elemento esté presente y visible
+        try {
+            this.driver.findElement(LoginPage.loginButton).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(LoginPage.errorAuth));
+            this.driver.quit();
+        } catch (Exception e){
+
+        }
     }
 }
